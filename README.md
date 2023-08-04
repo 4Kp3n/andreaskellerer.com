@@ -1,2 +1,4 @@
 # andreaskellerer.com
-Apache2, Django and PostgreSQL Docker setup for personal webpage
+Django, Nginx and PostgreSQL Docker setup for personal website
+
+Created with cookiecutter (https://github.com/cookiecutter/cookiecutter-django)

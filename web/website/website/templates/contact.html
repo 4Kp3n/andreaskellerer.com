@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+{% load widget_tweaks %}
+
+{% block title %}Contact{% endblock title %}
+
+{% block content %}
+
+<div class='bg-gray-800 text-white p-3 md:px-10 lg:px-20 xl:px-40 2xl:px-72'>
+    <p style="font-family: Poppins-Bold" class='text-4xl font-extrabold py-5 text-center md:text-start'>Contact</p>
+    
+   <form class='flex-col p-5' method="POST">
+        {% csrf_token %}
+        <label for="name">Email</label><br>
+        {% render_field form.email|add_class:"p-3 w-full my-2 bg-gray-900 border-slate-700 rounded-lg" %}
+
+        <label for="name">Subject</label><br>
+        {% render_field form.subject|add_class:"p-3 w-full my-2 bg-gray-900 border-slate-700 rounded-lg" %}
+
+        <label for="name">Message</label><br>
+        {% render_field form.message|add_class:"p-3 resize-none w-full h-72 my-2 bg-gray-900 border-slate-700 rounded-lg" %}
+        
+        <div class="form-actions">
+            <button type="submit" class='bg-blue-600 p-2 px-4 rounded-[6px] hover:bg-gray-800 hover:outline hover:outline-blue-600 transition delay-75 ease-in-out my-3'><i class="fa-regular fa-paper-plane"></i> Send</button>
+        </div>
+    </form>
+</div>
+
+{% endblock %}

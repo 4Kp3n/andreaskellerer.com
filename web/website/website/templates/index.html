@@ -1,0 +1,118 @@
+{% extends 'base.html' %}
+{% load tailwind_tags %}
+{% tailwind_preload_css %}
+{% load static %}
+
+{% block title %}Home{% endblock title %}
+
+{% block content %}
+<div class='landing-page text-white text-center flex p-10 flex-col items-center min-h-full'>
+  <!--Banner-->
+  <span style="font-family: Poppins-Bold" class='pt-[20vh] z-40 font-extrabold text-3xl md:text-4xl lg:text-5xl px-[20px] md:px-[140px] lg:px-[170px] xl:px-[200px] 2xl:px-[360px]'>
+    I'm a <span class='bg-clip-text bg-gradient-to-r from-red-300 to-red-600 text-transparent'>Pentester</span> - This is my portfolio & Blog.
+  </span>
+  <!--Buttons-->
+  <div class='hero-btn pt-6 md:pt-10 my-3 md:mt-2 font-bold text-sm md:text-[16px] md:leading-6'>
+    <ul class='flex flex-row gap-4 md:space-x-2'>
+      <a href="{% static 'pdf/CV.pdf' %}" download>
+        <div class='relative group'>
+          <div class='bg-gradient-to-r from-cyan-300 to-blue-600 px-6 py-2 text-white rounded-md -inset-0.5 absolute blur-sm opacity-75 group-hover:-inset-1 transition group-hover:duration-400 group-hover:opacity-90 duration-1000'></div>
+          <button class='relative bg-gray-800 px-7 py-2 text-white rounded-md group-hover:text-gray-50 transition duration-200'><i class="bi bi-download font-extrabold"></i> Download CV</button>
+        </div>
+      </a>
+      <a href='/about'>
+        <div class='relative group'>
+          <div class='bg-gradient-to-r from-cyan-300 to-blue-600 px-6 py-2 text-white rounded-md -inset-0.5 absolute blur-sm opacity-75 group-hover:-inset-1 transition group-hover:duration-400 group-hover:opacity-90 duration-1000'></div>
+          <button class='relative bg-gray-800 px-7 py-2 text-white rounded-md group-hover:text-gray-50 transition duration-200'><i class="bi bi-person"></i> About me</button>
+        </div>
+      </a>
+    </ul>
+  </div>
+</div>
+
+{% comment %}
+<!--What is Pentesting section-->
+<div class="bg-slate-800 text-white flex justify-center text-center">
+  <div class="pt-[15vh] pb-[25vh] mx-auto z-30 2xl:w-[1535px]">
+    <span style="font-family: Poppins-Bold" class='z-40 font-extrabold text-3xl md:text-4xl lg:text-5xl px-[20px] md:px-[140px] lg:px-[170px] xl:px-[200px] 2xl:px-[360px]'>
+      What is Pentesting?
+    </span>
+    <p class='text-center text-xl font-bold pt-4'>
+      "You pay an <span class='bg-clip-text bg-gradient-to-r from-red-300 to-red-600 text-transparent'>ethical</span> hacker to secure your systems
+      before <span class='bg-clip-text bg-gradient-to-r from-red-300 to-red-600 text-transparent'>evil</span> hackers disrupt your business" <br><br>
+      Same techniques <span class='bg-clip-text bg-gradient-to-r from-red-300 to-red-600 text-transparent'>but on your side</span>
+    </p>
+  </div>
+</div>
+<!--Technologies section-->
+<div class="newer-page bg-slate-800 text-white flex justify-center text-center">
+  <div class="pt-[15vh] pb-[15vh] mx-auto z-30 2xl:w-[1535px]">
+  </div>
+</div>
+{% endcomment %}
+    
+<style>
+  .landing-page {
+    background-image: url('{% static 'images/Background1.png' %}');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+  }
+  .new-page {
+    background-image: url('{% static 'images/Background3.png' %}');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+  }
+  .newer-page {
+    background-image: url('{% static 'images/Background2.jpg' %}');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+  }
+
+  .progress-bar {
+    animation: progress-bar-animation 1s normal forwards;
+  }
+  @keyframes progress-bar-animation {
+      0%   {  width: 0%; }
+      100% {  width: 100%; }
+  }
+  .html {
+    animation: html-animation 3s normal forwards;
+  }
+  @keyframes html-animation {
+      0%   {  width: 0%; }
+      100% {  width: 95%; }
+  }
+  .css {
+    animation: css-animation 3s normal forwards
+  }
+  @keyframes css-animation {
+      0%   {  width: 0%; }
+      100% {  width: 85%; }
+  }
+  .js {
+    animation: js-animation 3s normal forwards
+  }
+  @keyframes js-animation {
+      0%   {  width: 0%; }
+      100% {  width: 70%; }
+  }
+  .py {
+    animation: py-animation 3s normal forwards
+  }
+  @keyframes py-animation {
+      0%   {  width: 0%; }
+      100% {  width: 90%; }
+  }
+  .sql {
+      animation: sql-animation 3s normal forwards
+  }
+  @keyframes sql-animation {
+      0%   {  width: 0%; }
+      100% {  width: 80%; }
+  }
+</style>
+
+{% endblock %}
