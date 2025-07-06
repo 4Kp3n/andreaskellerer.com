@@ -1,0 +1,6 @@
+-r base.txt
+
+# Production-only dependencies
+django-anymail[mailgun]==13.0
+gunicorn==23.0.0
+psycopg==3.2.9

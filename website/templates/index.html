@@ -1,0 +1,189 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Home{% endblock title %}
+
+{% block content %}
+<section class="py-16 px-6 md:px-20 bg-gray-900">
+  <div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-10 items-center">
+    
+    <!-- Linke Seite mit Text -->
+    <div>
+      <p class="text-sm font-semibold text-primary-color uppercase mb-4">Cybersecurity Beratung</p>
+      <h1 class="text-4xl md:text-5xl font-bold leading-snug md:leading-tight mb-6">
+        Sicherheit<br class="hidden md:inline" /> neu gedacht.
+      </h1>
+      <p class="text-base md:text-lg text-gray-300 leading-relaxed">
+        Ich unterstütze Sie dabei, Ihre IT-Infrastruktur resilient gegen moderne Bedrohungen auszurichten – individuell, verständlich und mit Fokus auf das Wesentliche.
+      </p>
+    </div>
+
+    <!-- Rechte Seite mit Bild -->
+    <div class="flex justify-center">
+      <img src="{% static 'images/Cyber.png' %}" alt="IT-Security" class="w-full max-w-xs sm:max-w-sm md:max-w-md lg:max-w-lg xl:max-w-xl pt-10 p-4 rounded-lg shadow-lg" />
+    </div>
+    
+  </div>
+</section>
+
+<!-- Angebot Section -->
+<section class="text-white py-20 px-6 md:px-20">
+  <div class="max-w-7xl mx-auto">
+    <h2 class="text-3xl md:text-4xl font-bold text-center mb-12">Meine Leistungen</h2>
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-10">
+
+      <!-- Leistung 1 -->
+      <div class="bg-gray-800 p-6 rounded-2xl shadow-lg flex flex-col items-center text-center">
+        <i class="bi bi-shield-lock-fill text-4xl text-primary-color mb-4"></i>
+        <h3 class="text-xl font-semibold mb-2">IT-Security Beratung</h3>
+        <p class="text-gray-300 mb-4">Praxisnahe Analyse & Umsetzung der regulatorischen Anforderungen für KMUs.</p>
+        <a href="#" class="mt-auto bg-primary-color hover:bg-secondary-color text-white px-4 py-2 rounded">Mehr Info</a>
+      </div>
+
+      <!-- Leistung 2 -->
+      <div class="bg-gray-800 p-6 rounded-2xl shadow-lg flex flex-col items-center text-center">
+        <i class="bi bi-journal-bookmark text-4xl text-primary-color mb-4"></i>
+        <h3 class="text-xl font-semibold mb-2">Awareness Schulungen</h3>
+        <p class="text-gray-300 mb-4">Aufbau eines nachhaltigen Sicherheitsbewusstseins in Ihrem Unternehmen – durch interaktive Trainings und realistische Szenarien.</p>
+        <a href="#" class="mt-auto bg-primary-color hover:bg-secondary-color text-white px-4 py-2 rounded">Mehr Info</a>
+      </div>
+
+      <!-- Leistung 3 -->
+      <div class="bg-gray-800 p-6 rounded-2xl shadow-lg flex flex-col items-center text-center">
+        <i class="bi bi-bug-fill text-4xl text-primary-color mb-4"></i>
+        <h3 class="text-xl font-semibold mb-2">Security Testing</h3>
+        <p class="text-gray-300 mb-4">Durchführung gezielter Sicherheitsanalysen – vom Pentest bis zum LLM Redteaming.</p>
+        <a href="#" class="mt-auto bg-primary-color hover:bg-secondary-color text-white px-4 py-2 rounded">Mehr Info</a>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+{% comment %}
+<!-- Bewertungen Section -->
+<section class="bg-gray-900 text-white py-20 px-6 md:px-20">
+  <div class="max-w-7xl mx-auto">
+    <h2 class="text-3xl md:text-4xl font-bold text-center mb-12">Kundenstimmen</h2>
+    
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-10">
+      {% for review in reviews %}
+      <div class="bg-gray-800 p-6 rounded-2xl shadow-lg text-center">
+        <!-- Sterne -->
+        <div class="flex justify-center mb-2">
+          {% for i in "12345"|slice:":review.rating"|make_list %}
+            <i class="fas fa-star text-yellow-400 mr-1"></i>
+          {% endfor %}
+        </div>
+        <!-- Name -->
+        <p class="text-sm font-semibold">{{ review.name }}</p>
+        <!-- Text -->
+        <p class="text-sm text-gray-300 mt-2 leading-relaxed">{{ review.text }}</p>
+      </div>
+      {% empty %}
+      <p class="col-span-3 text-center text-gray-400">Noch keine Bewertungen vorhanden.</p>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+<!-- Ende Bewertungen Section -->
+{% endcomment %}
+
+    
+<!-- Kontakt Section -->
+<section class="bg-gray-900 text-white py-16 px-4 sm:px-6 lg:px-10">
+  <h2 class="text-3xl md:text-4xl font-bold text-center mb-12">Kontakt</h2>
+  <div class="max-w-7xl mx-auto grid grid-cols-8 gap-6 items-start">
+    <!-- Linke Spalte: 3/8 -->
+    <div class="col-span-8 sm:col-span-3">
+      <div class="flex flex-col items-center text-center space-y-4">
+        <img src="{% static 'images/Kontakt.jpg' %}" alt="Kontaktbild" class="w-40 h-40 object-cover rounded-full shadow-lg">
+        <div>
+          <p class="text-lg font-semibold">Andreas Kellerer</p>
+          <p class="text-gray-400">IT-Security Berater | Dozent</p>
+          <p class="mt-2 text-gray-300">E-Mail: <a href="mailto:contact@andreaskellerer.com" class="text-primary-color hover:underline">contact@andreaskellerer.com</a></p>
+          <p class="text-gray-300">Telefon: +49 1768 4979384</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Rechte Spalte: 5/8 -->
+    <div class="col-span-8 sm:col-span-5 space-y-4">
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+        <input type="text" placeholder="Vorname" class="w-full p-3 bg-gray-800 rounded">
+        <input type="text" placeholder="Nachname" class="w-full p-3 bg-gray-800 rounded">
+      </div>
+      <input type="text" placeholder="Firma" class="w-full p-3 bg-gray-800 rounded">
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+        <input type="email" placeholder="E-Mail" class="w-full p-3 bg-gray-800 rounded">
+        <input type="tel" placeholder="Telefon" class="w-full p-3 bg-gray-800 rounded">
+      </div>
+      <textarea rows="4" placeholder="Ihre Nachricht..." class="w-full p-3 bg-gray-800 rounded"></textarea>
+      <div class="flex items-center space-x-2">
+        <input type="checkbox" id="datenschutz" class="accent-cyan-500">
+        <label for="datenschutz" class="text-sm text-gray-300">Ich stimme der Datenverarbeitung zu</label>
+      </div>
+      <form action="{% url 'contact:my_contact' %}" method="post" class="space-y-4">
+        {% csrf_token %}
+        <!-- deine Input-Felder bleiben wie bisher ... -->
+        <button type="submit" class="bg-primary-color hover:bg-secondary-color text-white px-6 py-3 rounded font-semibold">Kontakt aufnehmen</button>
+      </form>
+    </div>
+  </div>
+</section>
+<!-- Ende Kontakt Section -->
+
+    
+<style>
+  .landing-page {
+    background-image: url('{% static 'images/overlay.png' %}');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+  }
+
+  .progress-bar {
+    animation: progress-bar-animation 1s normal forwards;
+  }
+  @keyframes progress-bar-animation {
+      0%   {  width: 0%; }
+      100% {  width: 100%; }
+  }
+  .html {
+    animation: html-animation 3s normal forwards;
+  }
+  @keyframes html-animation {
+      0%   {  width: 0%; }
+      100% {  width: 95%; }
+  }
+  .css {
+    animation: css-animation 3s normal forwards
+  }
+  @keyframes css-animation {
+      0%   {  width: 0%; }
+      100% {  width: 85%; }
+  }
+  .js {
+    animation: js-animation 3s normal forwards
+  }
+  @keyframes js-animation {
+      0%   {  width: 0%; }
+      100% {  width: 70%; }
+  }
+  .py {
+    animation: py-animation 3s normal forwards
+  }
+  @keyframes py-animation {
+      0%   {  width: 0%; }
+      100% {  width: 90%; }
+  }
+  .sql {
+      animation: sql-animation 3s normal forwards
+  }
+  @keyframes sql-animation {
+      0%   {  width: 0%; }
+      100% {  width: 80%; }
+  }
+</style>
+
+{% endblock %}

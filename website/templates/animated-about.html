@@ -1,0 +1,107 @@
+{% extends 'base.html' %}
+
+{% block title %}About{% endblock title %}
+
+{% block content %}
+
+<div class='bg-gray-800 text-white p-3 md:px-10 lg:px-20 xl:px-40 2xl:px-72 2xl:mx-auto 2xl:w-[1535px]'>
+  <div class='m-6'>
+    <p style="font-family: Poppins-Bold" class='text-4xl font-extrabold py-5 text-center md:text-start'>About Me</p>
+    <p class='text-justify'>
+      My name is Andreas and I love technology.<br><br>
+
+      I was ﬁrst introduced to ethical hacking as a working student back in 2016 and instantly knew I want to make a professional career out of it.  <br><br>
+
+      Staying in contact with cyber security ever since, I aquired a broad knowlege in various ﬁelds expanding this expertise on a daily basis. I like to get things done in the most eﬃcient way possible and strive to optimize my workﬂows to bring forth the best outcome for me and my clients.
+
+    </p>
+    <div class='my-10'>
+      <p style="font-family: Poppins-Bold" class='text-4xl font-extrabold py-5 text-center md:text-start'>Skills</p>
+      <div class='grid grid-cols-1 md:grid-cols-2 md:space-x-4 lg:space-x-10'>
+        <div>
+          <div class='my-3'>
+            <p class="text-base font-medium my-3">Web & API</p>
+            <div class="progress-bar w-full md:w-80 lg:w-full bg-gray-700 rounded-full h-2.5">
+              <div class="web bg-gradient-to-r from-red-300 to-red-600 h-2.5 rounded-full"></div>
+            </div>  
+          </div>
+          <div class='my-3'>
+            <p class="text-base font-medium my-3">Android</p>
+            <div class="progress-bar w-full md:w-80 lg:w-full bg-gray-700 rounded-full h-2.5">
+              <div class="android bg-gradient-to-r from-red-300 to-red-600 h-2.5 rounded-full" style="width: 0%"></div>
+            </div>  
+          </div>
+          <div class='my-3'>
+            <p class="text-base font-medium my-3">Active Directory</p>
+            <div class="progress-bar w-full md:w-80 lg:w-full bg-gray-700 rounded-full h-2.5">
+              <div class="ad bg-gradient-to-r from-red-300 to-red-600 h-2.5 rounded-full" style="width: 0%"></div>
+            </div>  
+          </div>
+        </div>
+        <div>
+          <div class='my-3'>
+            <p class="text-base font-medium my-3">Embedded Linux</p>
+            <div class="progress-bar w-full md:w-80 lg:w-full bg-gray-700 rounded-full h-2.5">
+              <div class="linux bg-gradient-to-r from-red-300 to-red-600 h-2.5 rounded-full" style="width: 0%"></div>
+            </div>  
+          </div>
+          <div class='my-3'>
+            <p class="progress-bar text-base font-medium my-3">Network and Infrastructure</p>
+            <div class="progress-bar w-full md:w-80 lg:w-full bg-gray-700 rounded-full h-2.5">
+              <div class="net bg-gradient-to-r from-red-300 to-red-600 h-2.5 rounded-full" style="width: 0%"></div>
+            </div>  
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<style>
+  .progress-bar {
+    animation: progress-bar-animation 1s normal forwards;
+  }
+  @keyframes progress-bar-animation {
+    0%   {  width: 0%; }
+    100% {  width: 100%; }
+  }
+  .web {
+    animation: html-animation 3s normal forwards;
+  }
+  @keyframes html-animation {
+    0%   {  width: 0%; }
+    100% {  width: 90%; }
+  }
+  .android {
+    animation: css-animation 3s normal forwards
+  }
+  @keyframes css-animation {
+    0%   {  width: 0%; }
+    100% {  width: 80%; }
+  }
+  .ad {
+    animation: js-animation 3s normal forwards
+  }
+  
+  @keyframes js-animation {
+    0%   {  width: 0%; }
+    100% {  width: 65%; }
+  }
+  .linux {
+    animation: py-animation 3s normal forwards
+  }
+  @keyframes py-animation {
+    0%   {  width: 0%; }
+    100% {  width: 95%; }
+  }
+  .net {
+    animation: sql-animation 3s normal forwards
+  }
+  @keyframes sql-animation {
+    0%   {  width: 0%; }
+    100% {  width: 80%; }
+  }
+</style>
+
+
+{% endblock %}

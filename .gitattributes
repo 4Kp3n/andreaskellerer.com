@@ -1,0 +1,2 @@
+# Ensure consistent line endings across different operating systems (convert to LF in repo, native on checkout)
+* text=auto

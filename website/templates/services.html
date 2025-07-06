@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+
+{% block title %}Dienstleistungen - Andreas Kellerer{% endblock title %}
+
+{% block content %}
+<!-- Angebot Section -->
+<section class="flex-grow text-white py-20 px-6 md:px-20">
+  <div class="max-w-7xl mx-auto">
+    <h2 class="text-3xl md:text-4xl font-bold text-center mb-12">Meine Leistungen</h2>
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-10">
+
+      <!-- Leistung 1 -->
+      <div class="bg-gray-800 p-6 rounded-2xl shadow-lg flex flex-col items-center text-center">
+        <i class="bi bi-shield-lock-fill text-4xl text-primary-color mb-4"></i>
+        <h3 class="text-xl font-semibold mb-2">IT-Security Beratung</h3>
+        <p class="text-gray-300 mb-4">Praxisnahe Analyse & Umsetzung der regulatorischen Anforderungen für KMUs.</p>
+        <a href="#" class="mt-auto bg-primary-color hover:bg-secondary-color text-white px-4 py-2 rounded">Mehr Info</a>
+      </div>
+
+      <!-- Leistung 2 -->
+      <div class="bg-gray-800 p-6 rounded-2xl shadow-lg flex flex-col items-center text-center">
+        <i class="bi bi-search text-4xl text-primary-color mb-4"></i>
+        <h3 class="text-xl font-semibold mb-2">DORA Readiness Check</h3>
+        <p class="text-gray-300 mb-4">Sicherheits-Check und Risikobewertung speziell für Finanzdienstleister und Dienstleister.</p>
+        <a href="#" class="mt-auto bg-primary-color hover:bg-secondary-color text-white px-4 py-2 rounded">Mehr Info</a>
+      </div>
+
+      <!-- Leistung 3 -->
+      <div class="bg-gray-800 p-6 rounded-2xl shadow-lg flex flex-col items-center text-center">
+        <i class="bi bi-bug-fill text-4xl text-primary-color mb-4"></i>
+        <h3 class="text-xl font-semibold mb-2">Security Testing</h3>
+        <p class="text-gray-300 mb-4">Durchführung gezielter Sicherheitsanalysen – vom Pentest bis zum LLM Redteaming.</p>
+        <a href="#" class="mt-auto bg-primary-color hover:bg-secondary-color text-white px-4 py-2 rounded">Mehr Info</a>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+{% endblock %}

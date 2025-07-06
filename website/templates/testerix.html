@@ -1,0 +1,66 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}Importance of a Home Lab{% endblock %}
+
+{% block content %}
+<div class="prose prose-invert max-w-screen-lg mx-auto p-4">
+  <p><strong>❗Use</strong> <code>vagrant</code> to setup the machines as far as possible<br>
+  see here: <a href="https://github.com/rgl/windows-domain-controller-vagrant">rgl/windows-domain-controller-vagrant</a></p>
+
+  <p><strong>❗Also add another machine to bluenet</strong></p>
+
+  <p>My journey to OSCP and the new focus on Active Directory (AD) deemed it necessary to have a dedicated home lab to play around and test techniques.</p>
+
+  <h2>Outlook</h2>
+  <p>What we'll be building is depicted in the following diagram:</p>
+  <p><em>[Insert image: Blog-Home-Lab-Part-I.png]</em></p>
+
+  <table>
+    <thead>
+      <tr><th>Name</th><th>Role</th><th>Networks</th><th>IP address</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>Jarvis</td><td>Manjaro Linux (Host)</td><td></td><td></td></tr>
+      <tr><td>ZEUS</td><td>Domain Controller</td><td>bluenet</td><td>10.10.200.100</td></tr>
+      <tr><td>ARTEMIS</td><td>Windows Client</td><td>rednet, bluenet</td><td>10.10.100.200, 10.10.200.200</td></tr>
+      <tr><td>Mallory</td><td>Kali Linux (Attacker)</td><td>rednet</td><td>10.10.100.66</td></tr>
+    </tbody>
+  </table>
+
+  <h2>Prerequisites</h2>
+  <ul>
+    <li>Windows Server 2022 VM (promoted to DC)</li>
+    <li>Windows 10 Enterprise VM</li>
+    <li>Kali Linux VM</li>
+    <li>10GB RAM</li>
+  </ul>
+  <p>Download Links:<br>
+  <a href="https://www.microsoft.com/en-us/evalcenter">Microsoft Evaluation Center</a><br>
+  <a href="https://developer.microsoft.com/en-us/windows/downloads/virtual-machines/">Most recent Windows VMs</a></p>
+
+  <h2>Setting up the network</h2>
+  <pre><code>ip link add name rednet type bridge
+ip link add name bluenet type bridge
+ip link set dev rednet up
+ip link set dev bluenet up
+...</code></pre>
+
+  <h2>Setting up Active Directory</h2>
+  <p>Join domain via:</p>
+  <pre><code>Add-Computer -DomainName olymp.local –verbose</code></pre>
+
+  <h2>Exemplary Attack Chain</h2>
+  <ul>
+    <li>The XAMPP user has <code>SeImpersonate</code></li>
+    <li>ZEUS user’s hash is cached</li>
+  </ul>
+  <p>Use tools like Juicy Potato, PrintSpoofer, BloodHound, mimikatz, etc.</p>
+
+  <p><strong>Git repos to setup vulnerable AD:</strong><br>
+    <a href="https://github.com/davidprowe/BadBlood">BadBlood</a><br>
+    <a href="https://github.com/clong/DetectionLab">DetectionLab</a><br>
+    <a href="https://github.com/WazeHell/vulnerable-AD">vulnerable-AD</a>
+  </p>
+</div>
+{% endblock %}

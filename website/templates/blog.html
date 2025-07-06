@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+
+{% block title %}Blog{% endblock %}
+
+{% block content %}
+
+<!-- Angebot Section -->
+<section class="flex-grow text-white py-20 px-6 md:px-20">
+  <div class="max-w-7xl mx-auto">
+    <h2 class="text-3xl md:text-4xl font-bold text-center mb-12">Mein Blog</h2>
+      <section class="max-w-4xl mx-auto py-12 px-6">
+        <div class="space-y-6">
+          {% if posts %}
+            {% for post in posts %}
+              <div>
+                <h2 class="text-xl font-semibold">
+                  <a href="{% url 'blog:blog_detail' post.slug %}" class="text-primary-color hover:underline">
+                    {{ post.title }}
+                  </a>
+                </h2>
+                <p class="text-sm text-gray-400">{{ post.date }}</p>
+                <p class="text-gray-300 mt-2">{{ post.summary }}</p>
+              </div>
+            {% endfor %}
+          {% else %}
+            <p class="text-red-500">⚠️ Keine Blogposts gefunden.</p>
+          {% endif %}
+        </div>
+      </section>
+  </div>
+</section>
+
+{% endblock %}
