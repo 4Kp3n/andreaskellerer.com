@@ -44,7 +44,12 @@ def main() -> None:
 
     write_file(
         LOCAL_DIR / ".django",
-        f"DJANGO_SECRET_KEY={local_secret}\n",
+        "\n".join(
+            [
+                f"DJANGO_SECRET_KEY={local_secret}\n",
+                "USE_DOCKER=no",
+            ]
+        )
     )
     write_file(
         LOCAL_DIR / ".postgres",
