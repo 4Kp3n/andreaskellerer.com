@@ -3,18 +3,36 @@ volumes:
   production_postgres_data_backups: {}
   production_traefik: {}
   production_django_media: {}
+  tailwind-status: {}
 
 services:
+
+  tailwind:
+    image: node:20-alpine
+    working_dir: /app
+    volumes:
+      - ./website/theme/static_src:/app
+      - ./website/static:/app/../static
+      - tailwind-status:/tailwind-status
+    command: >
+      sh -c "
+        npm install &&
+        npm run build &&
+        touch /tailwind-status/.tailwind_done
+      "
+
   django:
     build:
       context: .
       dockerfile: ./compose/production/django/Dockerfile
-
     image: website_production_django
     volumes:
       - production_django_media:/app/website/media
+      - ./website/static:/app/website/static
+      - tailwind-status:/tailwind-status
     restart: always
     depends_on:
+      - tailwind 
       - postgres
       - redis
     env_file:
