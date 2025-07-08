@@ -8,18 +8,14 @@ volumes:
 services:
 
   tailwind:
-    image: node:20-alpine
-    working_dir: /app
+    build:
+      context: .
+      dockerfile: ./compose/production/tailwind/Dockerfile
     volumes:
       - ./website/theme/static_src:/app
-      - ./website/static:/app/../static
+      - ./website/theme/static/css/dist:/app/../static/css/dist
       - tailwind-status:/tailwind-status
-    command: >
-      sh -c "
-        npm install &&
-        npm run build &&
-        touch /tailwind-status/.tailwind_done
-      "
+    command: npm run build && touch /tailwind-status/.tailwind_done
 
   django:
     build:
