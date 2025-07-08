@@ -82,7 +82,7 @@ LOCAL_APPS = [
     "website.theme",
     "widget_tweaks",
 ]
-TAILWIND_APP_NAME = 'website.theme'
+TAILWIND_APP_NAME = 'theme'
 # https://docs.djangoproject.com/en/dev/ref/settings/#installed-apps
 INSTALLED_APPS = DJANGO_APPS + THIRD_PARTY_APPS + LOCAL_APPS
 

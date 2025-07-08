@@ -14,7 +14,7 @@
             {% for post in posts %}
               <div>
                 <h2 class="text-xl font-semibold">
-                  <a href="{% url 'blog:blog_detail' post.slug %}" class="text-primary-color hover:underline">
+                  <a href="{% url 'blog:blog_detail' post.slug %}" class="text-primary hover:underline">
                     {{ post.title }}
                   </a>
                 </h2>
