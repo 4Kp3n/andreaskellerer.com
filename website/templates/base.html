@@ -17,14 +17,16 @@
 
 <body class="overflow-x-hidden h-full flex flex-col bg-gray-900 text-white">
 
-  <header class="relative z-10 w-full h-44 md:max-h-40 sm:max-h-36 bg-cover bg-center text-white"
-          style="background-image: url('{% static 'images/Ironman-Hacker.png' %}');">
+  <header class="relative z-10 w-full bg-cover bg-center text-white"
+          style="height: clamp(100px, 18vw, 180px);">
 
     <!-- Inhalt im Header -->
     <div class="flex justify-between items-start p-4 max-w-screen-2xl mx-auto h-full">
       <!-- Logo links oben -->
       <a href="/">
-        <img src="{% static 'images/Logo.png' %}" alt="Firmenlogo" class="h-28 md:h-36 object-contain">
+        <img src="{% static 'images/Logo.png' %}" alt="Firmenlogo"
+             class="object-contain"
+             style="height: clamp(75px, 13.5vw, 135px);">
       </a>
 
       <!-- Social Media Icons rechts oben -->
@@ -34,13 +36,11 @@
       </div>
     </div>
 
-    {% comment %}
     <!-- Bild bei 2/3 Breite des Headers -->
-    <div class="absolute top-0 h-full left-2/3 flex items-center">
+    <div class="absolute top-0 h-full left-[66.666%] -translate-x-1/2 flex items-center pr-4">
       <img src="{% static 'images/Header.png' %}" alt="Header Visual"
-           class="h-full object-contain">
+           class="h-full object-contain max-w-[40vw]">
     </div>
-    {% endcomment %}
 
     <!-- Navigationsleiste -->
     <div class="flex justify-between items-center bg-gray-800 text-xs md:text-sm px-4 max-w-screen-2xl mx-auto">
